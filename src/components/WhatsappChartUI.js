@@ -6,17 +6,16 @@ import '../App.css';
 class WhatsappChartUI extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            message:''
-         };
+        this.state = {
+            message: ''
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
 
     }
 
-    static propTypes = {
-        prop: PropTypes
-    }
-
-   
 
     render() {
         return (
@@ -24,14 +23,14 @@ class WhatsappChartUI extends Component {
                 <div className={"ontainer-fluid"}>
                     <div className={"row"}>
                         <div className={"col-md-10"}>
-                            <form role="form">
+                            <form onSubmit={this.handleSubmit} >
                                 <h1> CHART SIMULATOR </h1>
                                 <div className={"form-group"}>
 
                                     <label for="exampleInputEmail1">
                                         Enter Message </label>
                                     <textarea class="form-control" >
-                                    {this.state.message}
+                                        {this.state.message}
                                     </textarea>
                                 </div>
 
@@ -55,6 +54,25 @@ class WhatsappChartUI extends Component {
             </div>
         )
     }
+
+    static propTypes = {
+        prop: PropTypes
+    }
+
+
+    handleChange(e) {
+        this.setState({ text: e.target.value });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        if (!this.state.message.length) {
+            alert("Nothing to commit")
+            return;
+        }
+
+    }
+
 }
 
 export default WhatsappChartUI;
