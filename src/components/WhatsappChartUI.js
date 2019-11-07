@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Bootstrap, Grid, Row, Col } from 'react-bootstrap'
+import '../App.css';
+
 
 class WhatsappChartUI extends Component {
     static propTypes = {
@@ -9,13 +10,37 @@ class WhatsappChartUI extends Component {
 
     render() {
         return (
-            <div className={"ontainer-fluid"}>
-                <div className={"row"}>
-                    <div className={"col-md-12"}>
-                        <h1> Testing me out </h1>
-                    </div>
-                </div>
+            <div className={"Home-wrapper , col-md-6"}>
+                <div className={"ontainer-fluid"}>
+                    <div className={"row"}>
+                        <div className={"col-md-10"}>
+                            <form role="form">
+                                <h1> CHART SIMULATOR </h1>
+                                <div className={"form-group"}>
 
+                                    <label for="exampleInputEmail1">
+                                        Enter Message </label>
+                                    <textarea class="form-control" >
+
+                                    </textarea>
+                                </div>
+
+
+                                <div className={"form-group"}>
+
+
+                                    <button type="submit" className="btn btn-primary">
+                                        Submit </button>
+                                </div>
+
+
+
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
         )
