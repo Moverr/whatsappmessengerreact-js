@@ -85,7 +85,17 @@ class WhatsappChartUI extends Component {
             alertClass :"alert alert-info ",
             alertMessage:"Processing ... "
 
-        })
+        });
+
+
+        const response = await fetch('localhost:3005', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ bodytext: this.state.message }),
+          })
+          console.log(await response.json())
+
+
 
 
     }
