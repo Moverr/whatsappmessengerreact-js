@@ -7,7 +7,9 @@ class WhatsappChartUI extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: '',
+            alertClass:"alert alert-success none",
+            alertMessage:"successful "
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -25,6 +27,7 @@ class WhatsappChartUI extends Component {
                         <div className={"col-md-10"}>
                             <form onSubmit={this.handleSubmit} >
                                 <h1> CHART SIMULATOR </h1>
+                                <div className={this.state.alertClass} role="alert">{this.state.alertMessage} </div>
                                 <div className={"form-group"}>
 
                                     <label for="exampleInputEmail1">
