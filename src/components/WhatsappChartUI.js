@@ -4,9 +4,19 @@ import '../App.css';
 
 
 class WhatsappChartUI extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            items: [], text: ''
+         };
+
+    }
+
     static propTypes = {
         prop: PropTypes
     }
+
+   
 
     render() {
         return (
