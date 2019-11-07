@@ -7,7 +7,7 @@ class WhatsappChartUI extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            items: [], text: ''
+            message:''
          };
 
     }
@@ -31,7 +31,7 @@ class WhatsappChartUI extends Component {
                                     <label for="exampleInputEmail1">
                                         Enter Message </label>
                                     <textarea class="form-control" >
-
+                                    {this.state.message}
                                     </textarea>
                                 </div>
 
