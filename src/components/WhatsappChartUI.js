@@ -64,15 +64,29 @@ class WhatsappChartUI extends Component {
 
 
     handleChange(e) {
-        this.setState({ text: e.target.value });
+        this.setState({ message: e.target.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        if (!this.state.message.length) {
-            alert("Nothing to commit")
+        if (this.state.message == "") {
+            
+            this.setState({
+                alertClass :"alert alert-warning ",
+                alertMessage:"Message is a mandatory field "
+
+            })
+            
+
             return;
         }
+
+        this.setState({
+            alertClass :"alert alert-info ",
+            alertMessage:"Processing ... "
+
+        })
+
 
     }
 
