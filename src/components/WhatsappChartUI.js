@@ -88,12 +88,19 @@ class WhatsappChartUI extends Component {
         });
 
 
-        const response = await fetch('localhost:3005', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ bodytext: this.state.message }),
+          axios.post(
+            'http://localhost:3005',
+            { bodytext: this.state.message },
+            { headers: { 'Content-Type': 'application/json' } }
+          ).then(res=>{
+            this.setState({
+                alertClass :"alert alert-success ",
+                alertMessage:"Recrod Sent Succesfully"
+    
+            });
           })
-          console.log(await response.json())
+         
+          console.log(response.data)
 
 
 
