@@ -63,8 +63,8 @@ class WhatsappChartUI extends Component {
     }
 
 
-    handleChange(e) {
-        this.setState({ message: e.target.value });
+    handleChange(e) { 
+        this.setState({message: e.target.value });
     }
 
     handleSubmit(e) {
