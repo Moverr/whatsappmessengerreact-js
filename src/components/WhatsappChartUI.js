@@ -9,6 +9,7 @@ class WhatsappChartUI extends Component {
         super(props);
         this.state = {
             message: '',
+            contacts:'',
             alertClass: "alert alert-success none",
             alertMessage: "successful "
         };
@@ -35,7 +36,7 @@ class WhatsappChartUI extends Component {
                                     <label for="exampleInputEmail1">
                                         Enter Contacts</label>
 
-                                    <input type="text" name="firstName" value={state.firstName} onChange={handleChange} />
+                                    <input type="text" placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacdts" value={state.contacts} onChange={handleChange} />
 
 
                                 </div>
