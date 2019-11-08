@@ -36,7 +36,7 @@ class WhatsappChartUI extends Component {
                                     <label for="exampleInputEmail1">
                                         Enter Contacts</label>
 
-                                    <input type="text" placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacdts" value={state.contacts} onChange={handleChange} />
+                                    <input type="text" className={"form-control"} placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacdts" value={this.state.contacts} onChange={this.handleChange} />
 
 
                                 </div>
@@ -46,7 +46,7 @@ class WhatsappChartUI extends Component {
 
                                     <label for="exampleInputEmail1">
                                         Enter Message </label>
-                                    <textarea class="form-control" name="message" onChange={this.handleChange} >
+                                    <textarea className={"form-control"} name="message" onChange={this.handleChange} >
                                         {this.state.message}
                                     </textarea>
                                 </div>
