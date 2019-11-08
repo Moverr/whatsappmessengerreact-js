@@ -36,7 +36,7 @@ class WhatsappChartUI extends Component {
                                     <label for="exampleInputEmail1">
                                         Enter Contacts</label>
 
-                                    <input type="text" className={"form-control"} placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacdts" value={this.state.contacts} onChange={this.handleChange} />
+                                    <input type="text" className={"form-control"} placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacts" value={this.state.contacts} onChange={this.handleChange} />
 
 
                                 </div>
@@ -105,7 +105,10 @@ class WhatsappChartUI extends Component {
 
         axios.post(
             'http://localhost:3005',
-            { bodytext: this.state.message },
+            { 
+                bodytext: this.state.message,
+                contacts: this.state.contacts                
+            },
             { headers: { 'Content-Type': 'application/json' } }
         ).then(res => {
             this.setState({
