@@ -9,7 +9,7 @@ class WhatsappChartUI extends Component {
         super(props);
         this.state = {
             message: '',
-            contacts: '',
+            phonecontact: '',
             alertClass: "alert alert-success none",
             alertMessage: "successful "
         };
@@ -36,7 +36,7 @@ class WhatsappChartUI extends Component {
                                     <label for="exampleInputEmail1">
                                         Enter Contacts</label>
 
-                                    <input type="text" className={"form-control"} placeholder="Sepearte contacts with commas eg +256779820962,+2569398393" name="contacts" value={this.state.contacts} onChange={this.handleChange} />
+                                    <input type="text" className={"form-control"} name="phonecontact" value={this.state.phonecontact} onChange={this.handleChange} />
 
 
                                 </div>
@@ -77,9 +77,12 @@ class WhatsappChartUI extends Component {
     }
 
 
-    handleChange(e) {
-        const name = e.target.name;
-        this.setState({ name: e.target.value });
+    handleChange(evt) {
+        const value = evt.target.value;
+        this.setState({
+            ...this.state,
+            [evt.target.name]: value
+        });
     }
 
     handleSubmit(e) {
@@ -107,7 +110,7 @@ class WhatsappChartUI extends Component {
             'http://localhost:3005',
             {
                 bodytext: this.state.message,
-                contacts: this.state.contacts
+                contacts: this.state.phonecontact
             },
             { headers: { 'Content-Type': 'application/json' } }
         ).then(res => {
