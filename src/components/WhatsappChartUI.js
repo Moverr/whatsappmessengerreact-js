@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import '../App.css';
+import axios from 'axios';
 
 
 class WhatsappChartUI extends Component {
@@ -8,8 +9,8 @@ class WhatsappChartUI extends Component {
         super(props);
         this.state = {
             message: '',
-            alertClass:"alert alert-success none",
-            alertMessage:"successful "
+            alertClass: "alert alert-success none",
+            alertMessage: "successful "
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -28,11 +29,22 @@ class WhatsappChartUI extends Component {
                             <form onSubmit={this.handleSubmit} >
                                 <h1> CHART SIMULATOR </h1>
                                 <div className={this.state.alertClass} role="alert">{this.state.alertMessage} </div>
+
                                 <div className={"form-group"}>
 
                                     <label for="exampleInputEmail1">
                                         Enter Message </label>
-                                    <textarea class="form-control"  name="message"   onChange={this.handleChange} >
+                                    <textarea class="form-control" name="message" onChange={this.handleChange} >
+                                        {this.state.message}
+                                    </textarea>
+                                </div>
+
+
+                                <div className={"form-group"}>
+
+                                    <label for="exampleInputEmail1">
+                                        Enter Message </label>
+                                    <textarea class="form-control" name="message" onChange={this.handleChange} >
                                         {this.state.message}
                                     </textarea>
                                 </div>
@@ -63,44 +75,42 @@ class WhatsappChartUI extends Component {
     }
 
 
-    handleChange(e) { 
-        this.setState({message: e.target.value });
+    handleChange(e) {
+        this.setState({ message: e.target.value });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         if (this.state.message == "") {
-            
+
             this.setState({
-                alertClass :"alert alert-warning ",
-                alertMessage:"Message is a mandatory field "
+                alertClass: "alert alert-warning ",
+                alertMessage: "Message is a mandatory field "
 
             })
-            
+
 
             return;
         }
 
         this.setState({
-            alertClass :"alert alert-info ",
-            alertMessage:"Processing ... "
+            alertClass: "alert alert-info ",
+            alertMessage: "Processing ... "
 
         });
 
 
-          axios.post(
+        axios.post(
             'http://localhost:3005',
             { bodytext: this.state.message },
             { headers: { 'Content-Type': 'application/json' } }
-          ).then(res=>{
+        ).then(res => {
             this.setState({
-                alertClass :"alert alert-success ",
-                alertMessage:"Recrod Sent Succesfully"
-    
+                alertClass: "alert alert-success ",
+                alertMessage: "Record Sent Succesfully"
+
             });
-          })
-         
-          console.log(response.data)
+        })
 
 
 
