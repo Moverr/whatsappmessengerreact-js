@@ -33,10 +33,11 @@ class WhatsappChartUI extends Component {
                                 <div className={"form-group"}>
 
                                     <label for="exampleInputEmail1">
-                                        Enter Message </label>
-                                    <textarea class="form-control" name="message" onChange={this.handleChange} >
-                                        {this.state.message}
-                                    </textarea>
+                                        Enter Contacts</label>
+
+                                    <input type="text" name="firstName" value={state.firstName} onChange={handleChange} />
+
+
                                 </div>
 
 
