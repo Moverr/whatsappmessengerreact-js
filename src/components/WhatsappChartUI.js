@@ -9,7 +9,7 @@ class WhatsappChartUI extends Component {
         super(props);
         this.state = {
             message: '',
-            contacts:'',
+            contacts: '',
             alertClass: "alert alert-success none",
             alertMessage: "successful "
         };
@@ -105,9 +105,9 @@ class WhatsappChartUI extends Component {
 
         axios.post(
             'http://localhost:3005',
-            { 
+            {
                 bodytext: this.state.message,
-                contacts: this.state.contacts                
+                contacts: this.state.contacts
             },
             { headers: { 'Content-Type': 'application/json' } }
         ).then(res => {
